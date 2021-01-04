@@ -1,0 +1,9 @@
+{% extends 'stolicica/main.html' %}
+
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" name="Submit">
+
+</form>
