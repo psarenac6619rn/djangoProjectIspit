@@ -8,7 +8,7 @@ class Drvo(models.Model):
     cena_DIN = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.naziv
+        return self.vrsta
 
 class Stolica(models.Model):
     model = models.CharField(max_length=100)
@@ -17,4 +17,4 @@ class Stolica(models.Model):
     proizvedeno_Od = models.ForeignKey(Drvo, on_delete = models.CASCADE)
 
     def __str__(self):
-        return self.naziv
+        return self.model

@@ -18,20 +18,21 @@
         <table class="table table-sm">
             <tr>
                 <th></th>
-                <th>naziv</th>
-                <th>cena</th>
-                <th>jedinica mere</th>
+                <th>model</th>
+                <th>dimenzije</th>
+                <th>cena_DIN</th>
                 <th>Update</th>
                 <th>Remove</th>
             </tr>
             {% for i in stolica %}
             <tr>
                  <td></td>
-                 <td>{{i.naziv}}</td>
+                 <td>{{i.model}}</td>
+                 <td>{{i.dimenzije}}</td>
                  <td>{{i.cena_DIN}}</td>
-                 <td>{{i.jedinicaMere}}</td>
-                 <td><a class="btn btn-sm btn-info" href="{% url 'gvozdje:UpdateG' i.id %}">Update</a> </td>
-                 <td><a class="btn btn-sm btn-danger" href="{% url 'gvozdje:DeleteG' i.id %}">Delete</a> </td>
+                 <td>{{i.proizvedeno_Od}}</td>
+                 <td><a class="btn btn-sm btn-info" href="{% url 'stolica:UpdateS' i.id %}">Update</a> </td>
+                 <td><a class="btn btn-sm btn-danger" href="{% url 'stolica:DeleteS' i.id %}">Delete</a> </td>
 
             </tr>
 
@@ -42,37 +43,30 @@
 
 
     <div class="col-md-7"></div>
-    <h2>MREZA:</h2>
+    <h2>Drvo:</h2>
 
     <hr>
 
     <div class = "card card-body">
-        <a class = "btn btn-primary btn-sm btn-block" href="{% url 'gvozdje:Mreza' %}">Dodaj
+        <a class = "btn btn-primary btn-sm btn-block" href="{% url 'stolica:Drvo' %}">Dodaj
         </a>
         <table class="table table-sm">
             <tr>
                 <th></th>
-                <th>naziv</th>
-                <th>dimenzije</th>
-                <th>dimenzije kocke</th>
-                <th>jedinica mere</th>
-                <th>dobijeno od</th>
-                <th>cena</th>
+                <th>vrsta</th>
+                <th>cena_DIN</th>
                 <th>Update</th>
                 <th>Remove</th>
             </tr>
 
-            {% for i in mreza %}
+            {% for i in drvo %}
             <tr>
                  <td></td>
-                 <td>{{i.naziv}}</td>
-                 <td>{{i.dimenzije}}</td>
-                 <td>{{i.dimenzijeKocke}}</td>
-                 <td>{{i.jedinicaMere}}</td>
-                 <td>{{i.proizvedeno_Od}}</td>
+                 <td>{{i.vrsta}}</td>
                  <td>{{i.cena_DIN}}</td>
-                 <td><a class="btn btn-sm btn-info" href="{% url 'gvozdje:UpdateM' i.id %}">Update</a> </td>
-                 <td><a class="btn btn-sm btn-danger" href="{% url 'gvozdje:DeleteM' i.id %}">Delete</a> </td>
+
+                 <td><a class="btn btn-sm btn-info" href="{% url 'stolica:UpdateD' i.id %}">Update</a> </td>
+                 <td><a class="btn btn-sm btn-danger" href="{% url 'stolica:DeleteD' i.id %}">Delete</a> </td>
 
             </tr>
 
