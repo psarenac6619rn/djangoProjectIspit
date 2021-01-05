@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% extends 'stolica/main.html' %}
+
+{% block content %}
+
+
+
+<hr class = "row">
+
+    <div class="col-md-5"></div>
+    <h2>Stolice:</h2>
+
+    <hr>
+
+    <div class="card card-body">
+        <a class="btn btn-primary btn-sm btn-block" href="{% url 'stolica:Stolica' %}">Dodaj
+        </a>
+        <table class="table table-sm">
+            <tr>
+                <th></th>
+                <th>naziv</th>
+                <th>cena</th>
+                <th>jedinica mere</th>
+                <th>Update</th>
+                <th>Remove</th>
+            </tr>
+            {% for i in stolica %}
+            <tr>
+                 <td></td>
+                 <td>{{i.naziv}}</td>
+                 <td>{{i.cena_DIN}}</td>
+                 <td>{{i.jedinicaMere}}</td>
+                 <td><a class="btn btn-sm btn-info" href="{% url 'gvozdje:UpdateG' i.id %}">Update</a> </td>
+                 <td><a class="btn btn-sm btn-danger" href="{% url 'gvozdje:DeleteG' i.id %}">Delete</a> </td>
+
+            </tr>
+
+
+            {% endfor %}
+        </table>
+    </div>
+
+
+    <div class="col-md-7"></div>
+    <h2>MREZA:</h2>
+
+    <hr>
+
+    <div class = "card card-body">
+        <a class = "btn btn-primary btn-sm btn-block" href="{% url 'gvozdje:Mreza' %}">Dodaj
+        </a>
+        <table class="table table-sm">
+            <tr>
+                <th></th>
+                <th>naziv</th>
+                <th>dimenzije</th>
+                <th>dimenzije kocke</th>
+                <th>jedinica mere</th>
+                <th>dobijeno od</th>
+                <th>cena</th>
+                <th>Update</th>
+                <th>Remove</th>
+            </tr>
+
+            {% for i in mreza %}
+            <tr>
+                 <td></td>
+                 <td>{{i.naziv}}</td>
+                 <td>{{i.dimenzije}}</td>
+                 <td>{{i.dimenzijeKocke}}</td>
+                 <td>{{i.jedinicaMere}}</td>
+                 <td>{{i.proizvedeno_Od}}</td>
+                 <td>{{i.cena_DIN}}</td>
+                 <td><a class="btn btn-sm btn-info" href="{% url 'gvozdje:UpdateM' i.id %}">Update</a> </td>
+                 <td><a class="btn btn-sm btn-danger" href="{% url 'gvozdje:DeleteM' i.id %}">Delete</a> </td>
+
+            </tr>
+
+
+            {% endfor %}
+        </table>
+    </div>
+
+
+</div>
+
+{% endblock %}
+
