@@ -1,8 +1,9 @@
+from django.contrib.auth.models import Group
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import Group
+
 from .decorators import unauthentificated_user, allow_users, admin_only
 from .forms import *
 
@@ -22,7 +23,7 @@ def registerPage(request):
                 user = form.save()
                 username = form.cleaned_data.get('username')
 
-                group = Group.objects.get(name='customer')
+                group = Group.objects.get(name = 'user')
                 user.groups.add(group)
 
                 messages.success(request, 'Account created for ' + username)
@@ -42,7 +43,7 @@ def loginPage(request):
 
            if user is not None:
                login(request, user)
-               return redirect('stolica:home')
+               return redirect('projekat:home')
            else:
                messages.info(request, 'Username or Password is incorect')
 
@@ -53,7 +54,7 @@ def logoutUser(request):
     logout(request)
     return redirect('projekat:login')
 
-@login_required(login_url='stolica:login')
+@login_required(login_url='projekat:login')
 @admin_only
 def stolica(request):
     drvo = Drvo.objects.all()
@@ -65,7 +66,7 @@ def userPage(request):
     stolica = Stolica.objects.all()
     return render(request, 'stolica/user.html', {'stolica': stolica, 'drvo': drvo})
 
-@login_required(login_url='stolica:login')
+@login_required(login_url='projekat:login')
 @allow_users(allowed_roles=['admin'])
 def createDrvo(request):
     form = DrvoForm()
@@ -81,7 +82,7 @@ def createDrvo(request):
 
     return render(request, 'stolica/drvo.html', context)
 
-@login_required(login_url='stolica:login')
+@login_required(login_url='projekat:login')
 @allow_users(allowed_roles=['admin'])
 def createStolica(request):
 
@@ -98,7 +99,7 @@ def createStolica(request):
 
     return render(request, 'stolica/stolica.html', context)
 
-@login_required(login_url='stolica:login')
+@login_required(login_url='projekat:login')
 @allow_users(allowed_roles=['admin'])
 def updateDrvo(request, drvo_id):
 
@@ -116,7 +117,7 @@ def updateDrvo(request, drvo_id):
     context = {'form':form}
     return render(request, 'stolica/drvo.html', context)
 
-@login_required(login_url='stolica:login')
+@login_required(login_url='projekat:login')
 @allow_users(allowed_roles=['admin'])
 def updateStolica(request, stolica_id):
 
@@ -134,7 +135,7 @@ def updateStolica(request, stolica_id):
     context = {'form':form}
     return render(request, 'stolica/stolica.html', context)
 
-@login_required(login_url='stolica:login')
+@login_required(login_url='projekat:login')
 @allow_users(allowed_roles=['admin'])
 def deleteDrvo(request, drvo_id):
     drvo = Drvo.objects.get(id=drvo_id)
@@ -145,7 +146,7 @@ def deleteDrvo(request, drvo_id):
     context = {'item': drvo}
     return  render(request, 'stolica/delete_drvo.html', context)
 
-@login_required(login_url='stolica:login')
+@login_required(login_url='projekat:login')
 @allow_users(allowed_roles=['admin'])
 def deleteStolica(request, stolica_id):
 

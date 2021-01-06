@@ -13,11 +13,10 @@
     <hr>
 
     <div class="card card-body">
-        <a class="btn btn-primary btn-sm btn-block" href="{% url 'stolica:Stolica' %}">Dodaj
+        <a class="btn btn-primary btn-sm btn-block" href="{% url 'projekat:stolica' %}">Dodaj
         </a>
         <table class="table table-sm">
             <tr>
-                <th></th>
                 <th>model</th>
                 <th>dimenzije</th>
                 <th>cena_DIN</th>
@@ -26,17 +25,13 @@
             </tr>
             {% for i in stolica %}
             <tr>
-                 <td></td>
                  <td>{{i.model}}</td>
                  <td>{{i.dimenzije}}</td>
                  <td>{{i.cena_DIN}}</td>
                  <td>{{i.proizvedeno_Od}}</td>
-                 <td><a class="btn btn-sm btn-info" href="{% url 'stolica:UpdateS' i.id %}">Update</a> </td>
-                 <td><a class="btn btn-sm btn-danger" href="{% url 'stolica:DeleteS' i.id %}">Delete</a> </td>
-
+                 <td><a class="btn btn-sm btn-info" href="{% url 'projekat:UpdateS' i.id %}">Update</a> </td>
+                 <td><a class="btn btn-sm btn-danger" href="{% url 'projekat:DeleteS' i.id %}">Delete</a> </td>
             </tr>
-
-
             {% endfor %}
         </table>
     </div>
@@ -48,11 +43,10 @@
     <hr>
 
     <div class = "card card-body">
-        <a class = "btn btn-primary btn-sm btn-block" href="{% url 'stolica:Drvo' %}">Dodaj
+        <a class = "btn btn-primary btn-sm btn-block" href="{% url 'projekat:drvo' %}">Dodaj
         </a>
         <table class="table table-sm">
             <tr>
-                <th></th>
                 <th>vrsta</th>
                 <th>cena_DIN</th>
                 <th>Update</th>
@@ -61,13 +55,10 @@
 
             {% for i in drvo %}
             <tr>
-                 <td></td>
                  <td>{{i.vrsta}}</td>
                  <td>{{i.cena_DIN}}</td>
-
-                 <td><a class="btn btn-sm btn-info" href="{% url 'stolica:UpdateD' i.id %}">Update</a> </td>
-                 <td><a class="btn btn-sm btn-danger" href="{% url 'stolica:DeleteD' i.id %}">Delete</a> </td>
-
+                 <td><a class="btn btn-sm btn-info" href="{% url 'projekat:UpdateD' i.id %}">Update</a> </td>
+                 <td><a class="btn btn-sm btn-danger" href="{% url 'projekat:DeleteD' i.id %}">Delete</a> </td>
             </tr>
 
 

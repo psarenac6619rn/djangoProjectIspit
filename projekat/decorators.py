@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 def unauthentificated_user(view_func):
     def wrapped_func(request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('projekat:home')
+            return redirect('projekat:userPage')
         else:
             return view_func(request, *args, **kwargs)
 
@@ -33,7 +33,7 @@ def admin_only(view_func):
                 group =request.user.groups.all()[0].name
 
             if group == 'customer':
-                return redirect('stolica:userPage')
+                return redirect('projekat:userPage')
 
             if group == 'admin':
                 return view_func(request, *args, **kwargs)

@@ -11,55 +11,35 @@
     <div class="card card-body">
         <table class="table table-sm">
             <tr>
-                <th></th>
                 <th>vrsta</th>
                 <th>cena_DIN</th>
-
             </tr>
             {% for i in drvo %}
             <tr>
-                 <td></td>
                  <td>{{i.vrsta}}</td>
                  <td>{{i.cena_DIN}}</td>
-
-
             </tr>
-
-
             {% endfor %}
         </table>
     </div>
-
-
     <div class="col-md-7"></div>
     <h2>STOLICA:</h2>
-
     <hr>
-
     <div class = "card card-body">
         <table class="table table-sm">
             <tr>
-                <th></th>
                 <th>model</th>
                 <th>dimenzije</th>
                 <th>cena_DIN</th>
                 <th>dobijeno od</th>
-
-
             </tr>
-
             {% for i in stolica %}
             <tr>
-                 <td></td>
-                 <td>{{i.naziv}}</td>
+                 <td>{{i.model}}</td>
                  <td>{{i.dimenzije}}</td>
                  <td>{{i.cena_DIN}}</td>
                  <td>{{i.proizvedeno_Od}}</td>
-
-
             </tr>
-
-
             {% endfor %}
         </table>
     </div>
