@@ -11,8 +11,9 @@ urlpatterns = [
 
     path('', views.userPage, name='home'),
     path('user', views.userPage, name='userPage'),
-    path('stolica', views.createStolica, name='Stolica'),
-    path('drvo', views.createDrvo, name='Drvo'),
+
+    path('stolica', views.createStolica, name='stolica'),
+    path('drvo', views.createDrvo, name='drvo'),
 
     path('update_drvo/<int:drvo_id>/', views.updateDrvo, name='UpdateD'),
     path('update_stolica/<int:stolica_id>/', views.updateStolica, name='UpdateS'),
