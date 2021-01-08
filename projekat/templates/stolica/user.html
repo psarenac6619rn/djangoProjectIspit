@@ -9,7 +9,6 @@
     <hr>
 
     <div class="card card-body">
-    <a class="btn btn-primary btn-sm btn-block" href="{% url 'projekat:stolica' %}">Dodaj</a>
         <table class="table table-sm">
             <tr>
                 <th>vrsta</th>
@@ -19,8 +18,7 @@
             <tr>
                  <td>{{i.vrsta}}</td>
                  <td>{{i.cena_DIN}}</td>
-                 <td><a class="btn btn-sm btn-info" href="{% url 'projekat:UpdateD' i.id %}">Update</a> </td>
-                 <td><a class="btn btn-sm btn-danger" href="{% url 'projekat:DeleteD' i.id %}">Delete</a> </td>
+
             </tr>
             {% endfor %}
         </table>
@@ -29,7 +27,6 @@
     <h2>STOLICA:</h2>
     <hr>
     <div class = "card card-body">
-        <a class="btn btn-primary btn-sm btn-block" href="{% url 'projekat:stolica' %}">Dodaj</a>
         <table class="table table-sm">
             <tr>
                 <th>model</th>
@@ -43,8 +40,6 @@
                  <td>{{i.dimenzije}}</td>
                  <td>{{i.cena_DIN}}</td>
                  <td>{{i.proizvedeno_Od}}</td>
-                 <td><a class="btn btn-sm btn-info" href="{% url 'projekat:UpdateS' i.id %}">Update</a> </td>
-                 <td><a class="btn btn-sm btn-danger" href="{% url 'projekat:DeleteS' i.id %}">Delete</a>
             </tr>
             {% endfor %}
         </table>

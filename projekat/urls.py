@@ -9,7 +9,7 @@ urlpatterns = [
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
 
-    path('', views.userPage, name='home'),
+    path('', views.stolica, name='home'),
     path('user', views.userPage, name='userPage'),
 
     path('stolica', views.createStolica, name='stolica'),
