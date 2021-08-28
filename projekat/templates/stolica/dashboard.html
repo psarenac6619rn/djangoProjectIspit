@@ -49,16 +49,11 @@
             <tr>
                 <th>vrsta</th>
                 <th>cena_DIN</th>
-                <th>Update</th>
-                <th>Remove</th>
-            </tr>
 
             {% for i in drvo %}
             <tr>
                  <td>{{i.vrsta}}</td>
                  <td>{{i.cena_DIN}}</td>
-                 <td><a class="btn btn-sm btn-info" href="{% url 'projekat:UpdateD' i.id %}">Update</a> </td>
-                 <td><a class="btn btn-sm btn-danger" href="{% url 'projekat:DeleteD' i.id %}">Delete</a> </td>
             </tr>
 
 
@@ -66,6 +61,34 @@
         </table>
     </div>
 
+
+</div>
+<div class="row">
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-drvo">
+                <div class="card-header">
+                    <h5 class="card-title">Ukupno proizvoda od Drveta</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{ total_drvo }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="cena-drvo">
+                <div class="card-header">
+                    <h5 class="card-title">50din cena</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{ cena }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
