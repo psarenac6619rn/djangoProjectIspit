@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -18,3 +18,12 @@ class Stolica(models.Model):
 
     def __str__(self):
         return self.model
+
+class User(models.Model):
+    username = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    password1 = models.CharField(max_length=50)
+    password2 = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.username

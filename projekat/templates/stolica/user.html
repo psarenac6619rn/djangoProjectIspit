@@ -1,64 +1,31 @@
 {% extends 'stolica/main.html' %}
+
 {% block content %}
+
+    {% include 'stolica/statusUser.html' %}
 
 <hr class = "row">
 
     <div class="col-md-5"></div>
-    <h2>Drvo:</h2>
+    <h2>USER panel:</h2>
 
     <hr>
+
     <div class="card card-body">
         <table class="table table-sm">
             <tr>
-                <th>vrsta</th>
-                <th>cena_DIN</th>
+                <th>username</th>
+                <th>email</th>
+                <th>password1</th>
             </tr>
-            {% for i in drvo %}
+            {% for i in user %}
             <tr>
-                 <td>{{i.vrsta}}</td>
-                 <td>{{i.cena_DIN}}</td>
-
+                 <td>{{i.username}}</td>
+                 <td>{{i.email}}</td>
+                 <td>{{i.password1}}</td>
             </tr>
             {% endfor %}
         </table>
     </div>
-    <div class="row">
-    <div class="col">
-        <div class="col-md">
-            <div class="card text-center text-white mb-3" id="total-Drvo">
-                <div class="card-header">
-                    <h5 class="card-title">Ukupno vrsta Drveta</h5>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">{{ total_drvo }}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-7"></div>
-    <h2>STOLICA:</h2>
-    <hr>
-    <div class = "card card-body">
-        <table class="table table-sm">
-            <tr>
-                <th>model</th>
-                <th>dimenzije</th>
-                <th>cena_DIN</th>
-                <th>dobijeno od</th>
-            </tr>
-            {% for i in stolica %}
-            <tr>
-                 <td>{{i.model}}</td>
-                 <td>{{i.dimenzije}}</td>
-                 <td>{{i.cena_DIN}}</td>
-                 <td>{{i.proizvedeno_Od}}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
-
-
-</div>
 
 {% endblock %}
